@@ -6,6 +6,8 @@ import { Canvas, useThree } from '@react-three/fiber'
 import { log } from 'three'
 // useHook can only be used the canvas component 
 
+import { OrbitControls  } from '@react-three/drei'
+
 const Dog = () => {
 
   // gl -<- renderer
@@ -15,13 +17,13 @@ const Dog = () => {
   })
 
   return (
-        <Canvas>
+    <>
           <mesh>
             <meshBasicMaterial color={0x00FF00} />
             <boxGeometry args={[1,1,1,1]} />
           </mesh>
-            
-        </Canvas>
+          <OrbitControls />  {/* WITH ORBIT CNTROLS WE CAN USE MOUSE TO INTERACT WITH THE MESH  */}
+    </>
   )
 }
 

@@ -3,3 +3,10 @@ create react project with npm create vite@latest .
 integrate three js - npm i three @react-three/fiber ( 2 packages)
 
 check 3 js set up or not
+
+we can create many pages and components by hand which will get messy in threejs so we use package -
+react three drei-
+npm i @react-three/drei
+
+THE PROJECT AT INITAL IS UNDERSTANDING OF react three/fiber and the setup of project
+import orbitControls from this package
