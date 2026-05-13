@@ -4,7 +4,10 @@
   box-sizing: border-box;
 }
 
-html, body {
+/* #root so canvas covers whole screen */ 
+/* to use the roots property in the canvas it should be direct chil so no divs that contains the canvas  */
+html, body, #root {  
+  height: 100%;
   width: 100%;
   background-color: black;
 }

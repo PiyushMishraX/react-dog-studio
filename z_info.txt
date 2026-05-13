@@ -1,3 +1,5 @@
-create react project with npm create vite@latest
+create react project with npm create vite@latest .
 
 integrate three js - npm i three @react-three/fiber ( 2 packages)
+
+check 3 js set up or not

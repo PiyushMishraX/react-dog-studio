@@ -3,11 +3,13 @@ import { Canvas } from '@react-three/fiber' // the element returned from rendere
 
 const Dog = () => {
   return (
-    <div>
         <Canvas>
+          <mesh>
+            <meshBasicMaterial color={0x00FF00} />
+            <boxGeometry args={[1,1,1,1]} />
+          </mesh>
             
         </Canvas>
-    </div>
   )
 }
 
