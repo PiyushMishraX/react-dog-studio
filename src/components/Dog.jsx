@@ -45,8 +45,8 @@ const Dog = () => {
       {/* <primitive object={model.scene} position = {[0,0,0]} scale={[10, 10, 10]} /> scale property to scale up x,y,z, axises respectively  */}
       {/* scene is loaded contianing the model */}
 
-      <primitive object={model.scene} position = {[0,-0.5,0]}  /> 
-      
+      <primitive object={model.scene} position = {[0,-0.5,0]} rotation={[0, Math.PI/3.2, 0]} /> 
+      {/* rotation to rotate model to front a little, the rotation property is given in radian(pie  180 deg)  --- Use hit and trial to set best ratation*/}
 
       <directionalLight position={[ 0, 5, 5]} color={0xFFFFFF} intersity={10}/> {/* meshStandard material require light to be seen */}
 
