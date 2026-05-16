@@ -36,7 +36,7 @@ const Dog = () => {
   useThree(({camera, scene, gl })=>{
     console.log(camera.position); // is inital camera is too far awayu so model looks small , thus we set it closer
 
-    camera.position.z = 0.7
+    camera.position.z = 0.55
     
   })
 
@@ -45,7 +45,7 @@ const Dog = () => {
       {/* <primitive object={model.scene} position = {[0,0,0]} scale={[10, 10, 10]} /> scale property to scale up x,y,z, axises respectively  */}
       {/* scene is loaded contianing the model */}
 
-      <primitive object={model.scene} position = {[0,-0.5,0]} rotation={[0, Math.PI/3.2, 0]} /> 
+      <primitive object={model.scene} position = {[0.25,-0.55,0]} rotation={[0, Math.PI/3.9, 0]} /> 
       {/* rotation to rotate model to front a little, the rotation property is given in radian(pie  180 deg)  --- Use hit and trial to set best ratation*/}
 
       <directionalLight position={[ 0, 5, 5]} color={0xFFFFFF} intersity={10}/> {/* meshStandard material require light to be seen */}

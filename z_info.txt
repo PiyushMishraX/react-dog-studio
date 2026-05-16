@@ -23,3 +23,15 @@ extension to see the model in vs code -> GLTF/GLB viewer
  
 
  cannot right click when orbital control active so ctr+shift+i for dev tools
+
+
+
+ NORMAL MAP and TEXTURES
+
+ Normal Map -- >
+ When the model is exported it cn have all the details and surface ips and downs in model itslef but this will make model file bigger and make it take longer time to load , which we don't want
+
+So we just add the essential details in the model  and other details are added through "Normal maps" which are images ( mostly in pn format )
+
+We load the model and after loading we get the details from normal map and apply it on the model
+
