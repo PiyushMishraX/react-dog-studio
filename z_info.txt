@@ -10,3 +10,14 @@ npm i @react-three/drei
 
 THE PROJECT AT INITAL IS UNDERSTANDING OF react three/fiber and the setup of project
 import orbitControls from this package
+
+
+( for learning we used the model from the website  in real tasks we have to  create the model ( ai or 3d modeler ) )
+
+
+// public/models have the dog model and other models that will be used
+
+extension to see the model in vs code -> GLTF/GLB viewer
+
+//  ALL real writes to the dogstudio
+ 
