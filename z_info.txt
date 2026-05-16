@@ -21,3 +21,5 @@ extension to see the model in vs code -> GLTF/GLB viewer
 
 //  ALL real writes to the dogstudio
  
+
+ cannot right click when orbital control active so ctr+shift+i for dev tools

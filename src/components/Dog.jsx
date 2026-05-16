@@ -13,7 +13,7 @@ import { OrbitControls , useGLTF } from '@react-three/drei' // useGLTF hook to l
 const Dog = () => {
 
   // gl -<- renderer
-  // useThree(({camera,sceme,gl}) =>{
+  // useThree(({camera,scene,gl}) =>{
   //   console.log(camera.position);
     
   // })
@@ -32,11 +32,23 @@ const Dog = () => {
   //  GIVE PATH RESPECT TO THE PUBLIC FOLDER NOT FROM THE CURRENT FILE LOCATION
   const model = useGLTF("/models/dog.drc.glb")
 
+  // useThree hook loading camera, scene and gl renderer
+  useThree(({camera, scene, gl })=>{
+    console.log(camera.position); // is inital camera is too far awayu so model looks small , thus we set it closer
+
+    camera.position.z = 0.7
+    
+  })
+
   return (
     <>
-      <primitive object={model.scene} position = {[0,0,0]} scale={[10, 10, 10]} /> scale property to scale up x,y,z, axises respectively 
-      {/* <primitive object={model.scene} position = {[0,0,0]} /> */}
-      <directionalLight position={[ 0, 5, 5]} color={0xFFFFFF} intersity={10}/>
+      {/* <primitive object={model.scene} position = {[0,0,0]} scale={[10, 10, 10]} /> scale property to scale up x,y,z, axises respectively  */}
+      {/* scene is loaded contianing the model */}
+
+      <primitive object={model.scene} position = {[0,-0.5,0]}  /> 
+      
+
+      <directionalLight position={[ 0, 5, 5]} color={0xFFFFFF} intersity={10}/> {/* meshStandard material require light to be seen */}
 
       <OrbitControls />
     </>
