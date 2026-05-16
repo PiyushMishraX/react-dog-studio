@@ -34,7 +34,8 @@ const Dog = () => {
 
   return (
     <>
-      <primitive object={model.scene} position = {[0,0,0]} />
+      <primitive object={model.scene} position = {[0,0,0]} scale={[10, 10, 10]} /> scale property to scale up x,y,z, axises respectively 
+      {/* <primitive object={model.scene} position = {[0,0,0]} /> */}
       <directionalLight position={[ 0, 5, 5]} color={0xFFFFFF} intersity={10}/>
 
       <OrbitControls />
