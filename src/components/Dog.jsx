@@ -1,4 +1,6 @@
 import React from 'react'
+import * as THREE from "three"
+
 // import { Canvas } from '@react-three/fiber' // the element returned from renderer in the dom is the canvas
 
 // react three fiber hides the code and reduce need to code , it creates the scene lighing etc on its own and if wwe want to access the camera , light etc use -> useThree hook
@@ -43,15 +45,30 @@ const Dog = () => {
     
   })
 
-  // traverses each object of model (108), on eby one and runs the callback each time
-  const texture = useTexture({
+  
+  const textures = useTexture({
     normalMap: "/dog_normals.jpg" // path respect to public
   })
 
-  // model.scene.traverse(()=>{
-  //   console.log("hello");
+  // traverses each object of model (108), on eby one and runs the callback each time
+  // have child as parameter which accepts each object for which traverse currently runs in
+  model.scene.traverse((child)=>{
+    // console.log("hello");
+    // console.log(child); // logs the details of the object
+
+    // check the name of the childs and clear only those with the name DOG (beacuse this parts are of the dogs body )
+
+    if(child.name.includes("DOG")){
+
+      // console.log(child);
     
-  // })
+      // console.log(child.name.split('').reverse().join('')); // just testing the working
+
+      // each child is a mesh on its own having there own geometry and material , we apply normalMa ogn material
+
+      
+    }
+  })
 
 
 
