@@ -43,3 +43,9 @@ All the textures ( appearanch and feel of model surface)
 are not added in the model itself , but we create image of it too , just like normal maps and add the details from that image to model, after loading the model 
 ( colour texture and matcap texture)
 
+Both normal map and texture are created by the model artist 
+
+
+In the model all branches , leafs and dog are all indepenedent( check through hierarachy )
+and we have to apply dog_normals Normal map only to the dog
+We have total 108 objects in the model we apply only in the dogs model 

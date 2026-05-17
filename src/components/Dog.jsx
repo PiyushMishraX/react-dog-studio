@@ -8,7 +8,10 @@ import { log } from 'three'
 // all hooks from react three fibre can only be inside canvas
 
 // import { OrbitControls  } from '@react-three/drei' // orbit controls to give mouse the contoller
-import { OrbitControls , useGLTF } from '@react-three/drei' // useGLTF hook to load and use the model
+import { OrbitControls , useGLTF, useTexture } from '@react-three/drei' 
+import { normalMap } from 'three/tsl'
+// useGLTF hook to load and use the model
+// useTextures to use normalMap and textures ( normal map are also textures )
 
 const Dog = () => {
 
@@ -34,11 +37,23 @@ const Dog = () => {
 
   // useThree hook loading camera, scene and gl renderer
   useThree(({camera, scene, gl })=>{
-    console.log(camera.position); // is inital camera is too far awayu so model looks small , thus we set it closer
+    // console.log(camera.position); // is inital camera is too far awayu so model looks small , thus we set it closer
 
     camera.position.z = 0.55
     
   })
+
+  // traverses each object of model (108), on eby one and runs the callback each time
+  const texture = useTexture({
+    normalMap: "/dog_normals.jpg" // path respect to public
+  })
+
+  // model.scene.traverse(()=>{
+  //   console.log("hello");
+    
+  // })
+
+
 
   return (
     <>
