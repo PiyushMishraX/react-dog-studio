@@ -66,6 +66,11 @@ const Dog = () => {
 
       // each child is a mesh on its own having there own geometry and material , we apply normalMa ogn material
 
+      child.material = new THREE.MeshStandardMaterial({
+        normalMap: textures.normalMap
+      })
+
+      
       
     }
   })
