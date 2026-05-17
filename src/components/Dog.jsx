@@ -50,6 +50,11 @@ const Dog = () => {
     normalMap: "/dog_normals.jpg" // path respect to public
   })
 
+  // normal map get flips hidng details from some parts,
+  // So stop the flipping( on Y direction )  or flip again
+  textures.normalMap.flipY = false
+
+
   // traverses each object of model (108), on eby one and runs the callback each time
   // have child as parameter which accepts each object for which traverse currently runs in
   model.scene.traverse((child)=>{
