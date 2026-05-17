@@ -11,7 +11,7 @@ import { log } from 'three'
 
 // import { OrbitControls  } from '@react-three/drei' // orbit controls to give mouse the contoller
 import { OrbitControls , useGLTF, useTexture } from '@react-three/drei' 
-import { normalMap } from 'three/tsl'
+import { color, normalMap } from 'three/tsl'
 // useGLTF hook to load and use the model
 // useTextures to use normalMap and textures ( normal map are also textures )
 
@@ -66,8 +66,14 @@ const Dog = () => {
 
       // each child is a mesh on its own having there own geometry and material , we apply normalMa ogn material
 
-      child.material = new THREE.MeshStandardMaterial({
-        normalMap: textures.normalMap
+      // child.material = new THREE.MeshStandardMaterial({
+      //   normalMap: textures.normalMap
+      // })
+
+      // child.material = new THREE.MeshBasicMaterial({ // using basic material bcz it do not require external lighting , but basic material is hiding are details ( much brighter than needed) so using matcap material
+      child.material = new THREE.MeshMatcapMaterial({
+        normalMap: textures.normalMap,
+        color: 0xFF0000
       })
 
       
