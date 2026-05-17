@@ -49,3 +49,10 @@ Both normal map and texture are created by the model artist
 In the model all branches , leafs and dog are all indepenedent( check through hierarachy )
 and we have to apply dog_normals Normal map only to the dog
 We have total 108 objects in the model we apply only in the dogs model 
+
+
+MatCap Material -->
+Matcap combinations image( big image ) contianing all the details on shpere like formats (mat cap material ) tells how the object interacts with the light , 
+Applying it on the model is better than adjusting the light which will get much more complexer and is much time taking
+
+matcap folder contains all the matcap materials sepearatly
