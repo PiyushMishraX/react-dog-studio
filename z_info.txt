@@ -35,3 +35,11 @@ So we just add the essential details in the model  and other details are added t
 
 We load the model and after loading we get the details from normal map and apply it on the model
 
+
+
+
+Textures - 
+All the textures ( appearanch and feel of model surface)
+are not added in the model itself , but we create image of it too , just like normal maps and add the details from that image to model, after loading the model 
+( colour texture and matcap texture)
+
