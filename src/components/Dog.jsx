@@ -51,17 +51,30 @@ const Dog = () => {
   })
 
   
-  const textures = useTexture({
-    normalMap: "/dog_normals.jpg", // path respect to public
-    sampleMatCap: "/matcap/mat-2.png"
-  })
+  // const textures = useTexture({
+  //   normalMap: "/dog_normals.jpg", // path respect to public
+  //   sampleMatCap: "/matcap/mat-2.png"
+  // }, (texture)=>{
+    // // setting all material  notwant to set seperately for all mat cap materials
+  //   textures.normalMap.flipY = false
+  //   textures.sampleMatCap.colorSpace = THREE.SRGBColorSpace 
+  // })
 
   // normal map get flips hidng details from some parts,
   // So stop the flipping( on Y direction )  or flip again
-  textures.normalMap.flipY = false
-  textures.sampleMatCap.colorSpace = THREE.SRGBColorSpace 
+  // textures.normalMap.flipY = false
+  // textures.sampleMatCap.colorSpace = THREE.SRGBColorSpace 
   // the textures are following old formats too so we set it to newer standards
   // by default three js shows very blend color but we have to show all output and render both full colourful
+
+
+
+  const [ normalMap,sampleMatCap ] = (useTexture( ["/dog_normals.jpg", "/matcap/mat-2.png"]))
+    .map( texture =>{
+      texture.flipY = false
+      texture.colorSpace = THREE.SRGBColorSpace
+      return texture
+  })
 
 
   // traverses each object of model (108), on eby one and runs the callback each time
@@ -86,9 +99,13 @@ const Dog = () => {
 
       // child.material = new THREE.MeshBasicMaterial({ // using basic material bcz it do not require external lighting , but basic material is hiding are details ( much brighter than needed) so using matcap material
       child.material = new THREE.MeshMatcapMaterial({
-        normalMap: textures.normalMap,
+        // normalMap: textures.normalMap,
+        // // color: 0xFF0000
+        // matcap: textures.sampleMatCap
+
+        normalMap: normalMap,
         // color: 0xFF0000
-        matcap: textures.sampleMatCap
+        matcap: sampleMatCap
       })
 
       
