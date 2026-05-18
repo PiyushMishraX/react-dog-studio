@@ -68,12 +68,20 @@ const Dog = () => {
   // by default three js shows very blend color but we have to show all output and render both full colourful
 
 
-
+  // texture initialization with side-effect mapping
   const [ normalMap,sampleMatCap ] = (useTexture( ["/dog_normals.jpg", "/matcap/mat-2.png"]))
     .map( texture =>{
       texture.flipY = false
       texture.colorSpace = THREE.SRGBColorSpace
       return texture
+  })
+
+
+  // material is created multiple times too traverse for 108 objects and material is created for each material
+  const dogMaterial = new THREE.MeshMatcapMaterial({
+      normalMap: normalMap,
+      matcap: sampleMatCap
+      
   })
 
 
@@ -98,15 +106,18 @@ const Dog = () => {
       // })
 
       // child.material = new THREE.MeshBasicMaterial({ // using basic material bcz it do not require external lighting , but basic material is hiding are details ( much brighter than needed) so using matcap material
-      child.material = new THREE.MeshMatcapMaterial({
-        // normalMap: textures.normalMap,
-        // // color: 0xFF0000
-        // matcap: textures.sampleMatCap
 
-        normalMap: normalMap,
-        // color: 0xFF0000
-        matcap: sampleMatCap
-      })
+      // child.material = new THREE.MeshMatcapMaterial({
+      //   // normalMap: textures.normalMap,
+      //   // // color: 0xFF0000
+      //   // matcap: textures.sampleMatCap
+
+      //   // normalMap: normalMap,
+      //   // // color: 0xFF0000
+      //   // matcap: sampleMatCap
+      // })
+
+      child.material = dogMaterial
 
       
       
