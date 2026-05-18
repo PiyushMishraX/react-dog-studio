@@ -42,17 +42,26 @@ const Dog = () => {
     // console.log(camera.position); // is inital camera is too far awayu so model looks small , thus we set it closer
 
     camera.position.z = 0.55
+
+    // the webgl renderer catch colors and tones in very low quality like old 2000's tv  we need full hd , 100% srgb
+    //  so we set
+    gl.toneMapping = THREE.ReinhardToneMapping;
+    gl.outputColorSpace = THREE.SRGBColorSpace
     
   })
 
   
   const textures = useTexture({
-    normalMap: "/dog_normals.jpg" // path respect to public
+    normalMap: "/dog_normals.jpg", // path respect to public
+    sampleMatCap: "/matcap/mat-2.png"
   })
 
   // normal map get flips hidng details from some parts,
   // So stop the flipping( on Y direction )  or flip again
   textures.normalMap.flipY = false
+  textures.sampleMatCap.colorSpace = THREE.SRGBColorSpace 
+  // the textures are following old formats too so we set it to newer standards
+  // by default three js shows very blend color but we have to show all output and render both full colourful
 
 
   // traverses each object of model (108), on eby one and runs the callback each time
@@ -78,7 +87,8 @@ const Dog = () => {
       // child.material = new THREE.MeshBasicMaterial({ // using basic material bcz it do not require external lighting , but basic material is hiding are details ( much brighter than needed) so using matcap material
       child.material = new THREE.MeshMatcapMaterial({
         normalMap: textures.normalMap,
-        color: 0xFF0000
+        // color: 0xFF0000
+        matcap: textures.sampleMatCap
       })
 
       
