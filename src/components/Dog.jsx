@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as THREE from "three"
 
 // import { Canvas } from '@react-three/fiber' // the element returned from renderer in the dom is the canvas
@@ -10,10 +10,11 @@ import { log } from 'three'
 // all hooks from react three fibre can only be inside canvas
 
 // import { OrbitControls  } from '@react-three/drei' // orbit controls to give mouse the contoller
-import { OrbitControls , useGLTF, useTexture } from '@react-three/drei' 
+import { OrbitControls , useGLTF, useTexture, useAnimations } from '@react-three/drei' 
 import { color, normalMap } from 'three/tsl'
 // useGLTF hook to load and use the model
 // useTextures to use normalMap and textures ( normal map are also textures )
+// useAnimation -> to use existing animations in the model and add more animatiosn
 
 const Dog = () => {
 
@@ -49,6 +50,13 @@ const Dog = () => {
     gl.outputColorSpace = THREE.SRGBColorSpace
     
   })
+
+  const { actions } = useAnimations(model.animations, model.scene)
+
+  // write action/ actions(created above) and name of animation-> from model FLB, GRTF viewer
+  useEffect(()=>{
+    actions["Take 001"].play()
+  }, [actions])
 
   
   // const textures = useTexture({
